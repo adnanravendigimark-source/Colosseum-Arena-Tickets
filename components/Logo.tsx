@@ -36,13 +36,13 @@ export default function Logo({
       </span>
       <div className="flex flex-col leading-tight">
         <span
-          className={`font-display text-base font-bold tracking-tight transition-colors ${
+          className={`font-display text-lg sm:text-xl font-bold tracking-tight transition-colors ${
             isDark ? "text-cream-100 group-hover:text-cream-50" : "text-charcoal-800 group-hover:text-olive-700"
           }`}
         >
           {line1}
         </span>
-        <span className={`text-[10px] font-bold uppercase tracking-widest ${isDark ? "text-sage-300" : "text-sage-600"}`}>
+        <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-widest ${isDark ? "text-sage-300" : "text-sage-600"}`}>
           {line2}
         </span>
       </div>
