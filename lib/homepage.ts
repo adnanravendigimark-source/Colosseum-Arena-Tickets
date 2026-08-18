@@ -273,7 +273,7 @@ export const DEFAULT_GALLERY: GalleryImage[] = [
     label: "Gladiator Arena Floor",
   },
   {
-    src: "https://images.unsplash.com/photo-1543429776-2782fc8e1acd?q=80&w=2400&auto=format&fit=crop",
+    src: "https://images.unsplash.com/photo-1632851853187-dae5c83372dc?q=80&w=2400&auto=format&fit=crop",
     alt: "Colosseum exterior architecture bathed in golden Roman sunlight",
     label: "Monumental Exterior",
   },
@@ -385,7 +385,7 @@ export const DEFAULT_SECTIONS: HomepageSections = {
         label: "Roman Forum Temples",
       },
       {
-        src: "https://images.unsplash.com/photo-1525874684015-58379d421a52?q=80&w=2400&auto=format&fit=crop",
+        src: "https://images.unsplash.com/photo-1740606947209-41e48e994048?q=80&w=2400&auto=format&fit=crop",
         alt: "Dramatic night illumination of the Roman Colosseum arches",
         label: "Night Illumination",
       },

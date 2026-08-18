@@ -3,7 +3,7 @@
 // What it does:
 //   1. Creates every table the app needs, if they don't already exist.
 //   2. If a table is empty, seeds it from the matching file in /data (the
-//      real Arno Boat Cruise Florence starter content) so the site has
+//      real Colosseum Arena Tickets starter content) so the site has
 //      real tours/posts/FAQs/homepage copy from the first run.
 //
 // How to run it:
@@ -593,7 +593,7 @@ async function main() {
   await seedSiteSettings();
   await seedAboutPage();
   await seedContactPage();
-  console.log("\nDone. Colosseum Arena Entry database is ready.");
+  console.log("\nDone. Colosseum Arena Tickets database is ready.");
 }
 
 main()

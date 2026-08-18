@@ -47,7 +47,7 @@ const DEFAULT_ABOUT: AboutPageContent = {
     "Visiting the Colosseum is a bucket-list dream for millions of travelers, but the ticket booking process can be confusing and overwhelming. Between general admission sell-outs, strict daily quotas, multiple entrance gates, and restricted underground zones, finding the right ticket shouldn't be difficult.",
   introParagraph2:
     "Colosseum Arena Tickets is an independent travel portal dedicated to providing clear, transparent comparisons of official fast-track tickets, direct Gladiator Arena Floor access passes, and historian-led guided tours in partnership with licensed Italian providers.",
-  introImage: "https://images.unsplash.com/photo-1543429776-2782fc8e1acd?q=80&w=2400&auto=format&fit=crop",
+  introImage: "https://images.unsplash.com/photo-1603199766980-fdd4ac568a11?q=80&w=2400&auto=format&fit=crop",
   introImageAlt: "Ancient Roman ruins and architecture of the Colosseum in Rome",
   reasonsHeading: "How We Curate Rome Tours & Tickets",
   reasonsSubheading: "Every ticket and guided experience featured on our site meets rigorous quality, reliability, and security standards.",
