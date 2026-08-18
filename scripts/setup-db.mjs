@@ -371,14 +371,21 @@ async function seedPosts() {
   }
   for (let i = 0; i < posts.length; i++) {
     const p = posts[i];
+    // Normalize field names/fallbacks the same way lib/posts.ts does, so
+    // this script doesn't hard-crash on a NOT NULL column just because a
+    // data/posts.json entry uses an older field name (e.g. coverImage) or
+    // omits an optional field (e.g. category, quickAnswer).
+    const date = p.date || (p.publishedAt ? p.publishedAt.slice(0, 10) : new Date().toISOString().slice(0, 10));
     await sql`
       INSERT INTO posts (
         slug, title, meta_title, meta_description, category, excerpt,
         quick_answer, read_time, date, image, image_alt,
         recommended_tour_id, recommended_tour_after_block, content, sort_order
       ) VALUES (
-        ${p.slug}, ${p.title}, ${p.metaTitle}, ${p.metaDescription}, ${p.category},
-        ${p.excerpt}, ${p.quickAnswer}, ${p.readTime}, ${p.date}, ${p.image}, ${p.imageAlt},
+        ${p.slug}, ${p.title}, ${p.metaTitle || p.title}, ${p.metaDescription || p.excerpt || ""},
+        ${p.category || "Colosseum Guides"}, ${p.excerpt || ""}, ${p.quickAnswer || ""},
+        ${p.readTime || "5 min read"}, ${date}, ${p.image || p.coverImage || ""},
+        ${p.imageAlt || p.coverImageAlt || ""},
         ${p.recommendedTourId || ""}, ${p.recommendedTourAfterBlock ?? null},
         ${JSON.stringify(p.content || [])}::jsonb, ${i}
       )
