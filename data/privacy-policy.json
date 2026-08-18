@@ -1,0 +1,31 @@
+{
+  "title": "Privacy Policy & Terms",
+  "lastUpdated": "March 2026",
+  "intro": "Colosseum Arena Tickets (\"we,\" \"our,\" or \"us\") operates colosseumarenaentry.com as an independent travel information, historical guide, and ticket comparison portal for travelers visiting Rome, Italy.",
+  "sections": [
+    {
+      "heading": "1. Who We Are & Affiliate Disclosure",
+      "content": "Colosseum Arena Tickets is an independent travel platform and affiliate publisher. We are not the official Parco Archeologico del Colosseo monument authority or direct merchant. We partner with authorized Italian and international ticketing providers (including GetYourGuide) to provide ticket comparisons, availability schedules, visitor guides, and fast-track booking options. When you click a tour link and purchase tickets through our authorized partners, we may earn an affiliate commission at no additional cost to you."
+    },
+    {
+      "heading": "2. Information We Collect",
+      "content": "We do not store your credit card or financial billing information on our servers. All booking transactions, payment processing, and electronic ticket issuances are fulfilled directly by authorized partner platforms under strict PCI-DSS and SSL compliance. If you send us a message via our Contact form, we collect your name and email address exclusively to respond to your customer inquiry."
+    },
+    {
+      "heading": "3. Cookies & Analytics",
+      "content": "We use standard first-party cookies and anonymized web analytics to analyze site traffic, optimize page loading speed, and enhance your user experience. These cookies do not contain sensitive personal data. You can manage or disable cookie preferences at any time in your browser settings."
+    },
+    {
+      "heading": "4. Third-Party Links & Booking Terms",
+      "content": "Our platform links to external ticketing and tour operating websites. Once you leave our domain, your transactions and reservations are subject to the privacy terms and cancellation policies of the respective booking merchant. We recommend reviewing their terms prior to booking."
+    },
+    {
+      "heading": "5. GDPR & Data Subject Rights",
+      "content": "Under the European Union General Data Protection Regulation (GDPR) and UK GDPR, you have the right to request access to, correction of, or permanent deletion of any personal correspondence you have submitted to us. To submit a data request, please reach out through our Contact page."
+    },
+    {
+      "heading": "6. Contact Information",
+      "content": "For privacy inquiries, questions about our editorial guides, or assistance with our website, please email us at support@colosseumarenaentry.com."
+    }
+  ]
+}
