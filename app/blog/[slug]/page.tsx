@@ -99,7 +99,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#F4F0E6]">
+      <main className="min-h-screen bg-white">
         <div className="mx-auto max-w-6xl px-4 pt-6 sm:px-6">
           {/* Breadcrumbs */}
           <nav aria-label="Breadcrumb" className="text-xs font-medium text-charcoal-600">

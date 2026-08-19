@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import ImageUploadField from "./ImageUploadField";
-import IconPicker from "./IconPicker";
 import SeoFieldsCard from "./SeoFieldsCard";
 import RichTextEditor from "./RichTextEditor";
-import type { AboutPageContent, AboutReason } from "@/lib/about";
+import TiptapArticleEditor from "./TiptapArticleEditor";
+import type { AboutPageContent } from "@/lib/about";
 
 const inputClass =
   "w-full rounded-lg border border-stone-300 px-3 py-2 text-sm focus:border-canal-blue focus:outline-none focus:ring-1 focus:ring-canal-blue";
@@ -42,20 +42,6 @@ export default function AboutForm({ initial }: { initial: AboutPageContent }) {
     setSaved(false);
   }
 
-  function updateReason(i: number, patch: Partial<AboutReason>) {
-    const next = [...about.reasons];
-    next[i] = { ...next[i], ...patch };
-    update("reasons", next);
-  }
-
-  function addReason() {
-    update("reasons", [...about.reasons, { icon: "ShieldCheckIcon", title: "", body: "" }]);
-  }
-
-  function removeReason(i: number) {
-    update("reasons", about.reasons.filter((_, idx) => idx !== i));
-  }
-
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSaving(true);
@@ -80,7 +66,10 @@ export default function AboutForm({ initial }: { initial: AboutPageContent }) {
       {error && <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>}
       {saved && <p className="rounded-lg bg-green-50 px-3 py-2 text-sm text-green-700">Saved — live at /about now.</p>}
 
-      <SectionCard title="Hero banner" description="The top banner readers see first.">
+      <SectionCard
+        title="Page title"
+        description="The banner photo, eyebrow, heading and lede line at the top of the page."
+      >
         <div>
           <label className={labelClass}>Eyebrow label</label>
           <input value={about.heroEyebrow} onChange={(e) => update("heroEyebrow", e.target.value)} className={inputClass} placeholder="About Us" />
@@ -90,101 +79,33 @@ export default function AboutForm({ initial }: { initial: AboutPageContent }) {
           <textarea rows={2} value={about.heroHeading} onChange={(e) => update("heroHeading", e.target.value)} className={inputClass} />
         </div>
         <div>
-          <label className={labelClass}>Subheading</label>
+          <label className={labelClass}>Lede line (under the heading)</label>
           <RichTextEditor value={about.heroSubheading} onChange={(html) => update("heroSubheading", html)} minHeight="4rem" allowedHeadings={[]} />
         </div>
-        <ImageUploadField label="Hero background photo" value={about.heroImage} onChange={(url) => update("heroImage", url)} aspectRatio={16 / 9} />
+        <ImageUploadField
+          label="Top banner photo"
+          value={about.heroImage}
+          onChange={(url) => update("heroImage", url)}
+          aspectRatio={16 / 9}
+        />
         <div>
-          <label className={labelClass}>Hero photo alt text</label>
+          <label className={labelClass}>Banner photo alt text</label>
           <input value={about.heroImageAlt} onChange={(e) => update("heroImageAlt", e.target.value)} className={inputClass} />
         </div>
       </SectionCard>
 
-      <SectionCard title="Why we built this" description="The text + photo section under the hero.">
-        <div>
-          <label className={labelClass}>Heading (H2)</label>
-          <input value={about.introHeading} onChange={(e) => update("introHeading", e.target.value)} className={inputClass} />
-        </div>
-        <div>
-          <label className={labelClass}>First paragraph</label>
-          <RichTextEditor value={about.introParagraph1} onChange={(html) => update("introParagraph1", html)} minHeight="6rem" allowedHeadings={[]} />
-        </div>
-        <div>
-          <label className={labelClass}>Second paragraph</label>
-          <RichTextEditor value={about.introParagraph2} onChange={(html) => update("introParagraph2", html)} minHeight="6rem" allowedHeadings={[]} />
-        </div>
-        <ImageUploadField label="Section photo" value={about.introImage} onChange={(url) => update("introImage", url)} aspectRatio={4 / 3} />
-        <div>
-          <label className={labelClass}>Section photo alt text</label>
-          <input value={about.introImageAlt} onChange={(e) => update("introImageAlt", e.target.value)} className={inputClass} />
-        </div>
-      </SectionCard>
-
-      <SectionCard title="Trust reasons" description="The 4 icon cards explaining how tours are picked.">
-        <div>
-          <label className={labelClass}>Heading (H2)</label>
-          <input value={about.reasonsHeading} onChange={(e) => update("reasonsHeading", e.target.value)} className={inputClass} />
-        </div>
-        <div>
-          <label className={labelClass}>Subheading</label>
-          <RichTextEditor value={about.reasonsSubheading} onChange={(html) => update("reasonsSubheading", html)} minHeight="3rem" allowedHeadings={[]} />
-        </div>
-        <div className="space-y-3">
-          {about.reasons.map((reason, i) => (
-            <div key={i} className="rounded-xl border border-stone-200 bg-stone-50 p-4">
-              <div className="mb-2 flex items-center justify-between">
-                <span className="text-xs font-semibold uppercase tracking-wide text-stone-500">Card {i + 1}</span>
-                <button type="button" onClick={() => removeReason(i)} className="text-xs text-red-600 hover:text-red-700">
-                  Remove
-                </button>
-              </div>
-              <div className="space-y-2">
-                <IconPicker value={reason.icon} onChange={(icon) => updateReason(i, { icon })} />
-                <input
-                  value={reason.title}
-                  onChange={(e) => updateReason(i, { title: e.target.value })}
-                  className={inputClass}
-                  placeholder="Card title"
-                />
-                <RichTextEditor
-                  value={reason.body}
-                  onChange={(html) => updateReason(i, { body: html })}
-                  minHeight="3rem"
-                  allowedHeadings={[]}
-                  placeholder="Card body text"
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-        <button type="button" onClick={addReason} className="rounded-lg border border-stone-300 bg-white px-3 py-1.5 text-xs font-semibold text-stone-900 hover:bg-stone-100">
-          + Add card
-        </button>
-      </SectionCard>
-
-      <SectionCard title="Affiliate disclosure & CTA" description="The closing section explaining how the site earns money.">
-        <div>
-          <label className={labelClass}>Heading</label>
-          <input value={about.disclosureHeading} onChange={(e) => update("disclosureHeading", e.target.value)} className={inputClass} />
-        </div>
-        <div>
-          <label className={labelClass}>Body text</label>
-          <RichTextEditor value={about.disclosureBody} onChange={(html) => update("disclosureBody", html)} minHeight="6rem" allowedHeadings={[]} />
-        </div>
-        <div className="grid gap-5 sm:grid-cols-2">
-          <div>
-            <label className={labelClass}>CTA prompt text</label>
-            <input value={about.ctaText} onChange={(e) => update("ctaText", e.target.value)} className={inputClass} />
-          </div>
-          <div>
-            <label className={labelClass}>CTA button label</label>
-            <input value={about.ctaButtonLabel} onChange={(e) => update("ctaButtonLabel", e.target.value)} className={inputClass} />
-          </div>
-        </div>
-        <div>
-          <label className={labelClass}>Contact prompt (below the CTA box)</label>
-          <RichTextEditor value={about.contactPromptHtml} onChange={(html) => update("contactPromptHtml", html)} minHeight="3rem" allowedHeadings={[]} />
-        </div>
+      <SectionCard
+        title="Page Content"
+        description="Write the whole page top to bottom, just like a blog article. Use the toolbar to add headings, bold, links, or lists."
+      >
+        <TiptapArticleEditor
+          value={about.content}
+          onChange={(html) => update("content", html)}
+          placeholder="Write the About page here… use the toolbar for headings, bold, links, or lists."
+          allowedHeadings={[2, 3]}
+          minHeight="30rem"
+          stickyOffset="3rem"
+        />
       </SectionCard>
 
       <SeoFieldsCard

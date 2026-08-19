@@ -133,7 +133,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${displayFont.variable} ${bodyFont.variable}`}>
-      <body className="font-body bg-[#F4F0E6] text-[#252522] antialiased selection:bg-olive-700 selection:text-white">
+      <body className="font-body bg-white text-[#252522] antialiased selection:bg-olive-700 selection:text-white">
         {themeStyle && <style dangerouslySetInnerHTML={{ __html: themeStyle }} />}
         {children}
         <script

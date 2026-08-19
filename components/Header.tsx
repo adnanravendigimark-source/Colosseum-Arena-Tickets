@@ -10,7 +10,7 @@ export default async function Header() {
   const header = content.header;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-warmstone-200/80 bg-cream-100/90 backdrop-blur-md transition-all duration-300">
+    <header className="sticky top-0 z-50 border-b border-warmstone-200/80 bg-white/90 backdrop-blur-md transition-all duration-300">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Logo
           logoImage={header.logoImage}

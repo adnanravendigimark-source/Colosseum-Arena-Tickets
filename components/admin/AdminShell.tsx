@@ -50,7 +50,7 @@ export default function AdminShell({
   }
 
   return (
-    <div className="flex min-h-screen bg-stone-100 font-body text-stone-900">
+    <div className="flex min-h-screen bg-white font-body text-stone-900">
       <div
         className={`shrink-0 overflow-hidden sm:transition-[width] sm:duration-200 sm:ease-in-out ${collapsed ? "sm:w-0" : "sm:w-64"
           } ${hydrated ? "" : "sm:w-64"}`}
