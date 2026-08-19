@@ -83,7 +83,22 @@ function parseContent(value: unknown): string {
   return "";
 }
 
+// The posts table's `date` column is a real Postgres DATE type, so the Neon
+// driver hands it back as a JS Date object, not a string — unlike the other
+// TEXT columns on this row. Rendering a Date object directly as JSX text
+// throws "Objects are not valid as a React child", and a Date object isn't
+// a valid value for a `type="date"` input either, so every value that ends
+// up in `date`/`updatedAt` has to be normalized to a plain "YYYY-MM-DD"
+// string here, regardless of whether it arrived as a Date, a string, or is
+// missing entirely.
+function toDateString(value: unknown, fallback: string): string {
+  if (value instanceof Date) return value.toISOString().slice(0, 10);
+  if (typeof value === "string" && value) return value.slice(0, 10);
+  return fallback;
+}
+
 function rowToPost(row: any): Post {
+  const dateStr = toDateString(row.date, row.created_at ? toDateString(row.created_at, "2026-03-20") : "2026-03-20");
   return {
     slug: row.slug,
     title: row.title,
@@ -93,8 +108,8 @@ function rowToPost(row: any): Post {
     excerpt: row.excerpt,
     quickAnswer: row.quick_answer || "",
     readTime: row.read_time || "5 min read",
-    date: row.date || (row.created_at ? new Date(row.created_at).toISOString().slice(0, 10) : "2026-03-20"),
-    updatedAt: row.updated_at ? new Date(row.updated_at).toISOString().slice(0, 10) : row.date,
+    date: dateStr,
+    updatedAt: row.updated_at ? toDateString(row.updated_at, dateStr) : dateStr,
     image: row.image || row.cover_image || "",
     imageAlt: row.image_alt || row.cover_image_alt || "",
     recommendedTourId: row.recommended_tour_id || "colosseum-arena-floor-skip-the-line-ticket",
