@@ -273,7 +273,7 @@ export const DEFAULT_GALLERY: GalleryImage[] = [
     label: "Gladiator Arena Floor",
   },
   {
-    src: "https://images.unsplash.com/photo-1632851853187-dae5c83372dc?q=80&w=2400&auto=format&fit=crop",
+    src: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=2400&auto=format&fit=crop",
     alt: "Colosseum exterior architecture bathed in golden Roman sunlight",
     label: "Monumental Exterior",
   },
@@ -543,7 +543,7 @@ function rowToHomepage(row: any): HomepageContent {
     })(),
     heroCtaPrimaryText: row.hero_cta_primary_text || DEFAULT_HOMEPAGE_CONTENT.heroCtaPrimaryText,
     heroCtaPrimaryHref: row.hero_cta_primary_href || DEFAULT_HOMEPAGE_CONTENT.heroCtaPrimaryHref,
-    heroCtaSecondaryText: row.hero_cta_secondary_text || DEFAULT_HOMEPAGE_CONTENT.heroCtaSecondaryHref,
+    heroCtaSecondaryText: row.hero_cta_secondary_text || DEFAULT_HOMEPAGE_CONTENT.heroCtaSecondaryText,
     heroCtaSecondaryHref: row.hero_cta_secondary_href || DEFAULT_HOMEPAGE_CONTENT.heroCtaSecondaryHref,
     ratingValue: row.rating_value || "",
     ratingCount: row.rating_count || "",
