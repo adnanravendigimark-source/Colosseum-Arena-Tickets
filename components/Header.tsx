@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import MobileNav from "./MobileNav";
+import HeaderNav from "./HeaderNav";
+import { TicketIcon } from "./icons";
 import { getHomepageContent } from "@/lib/homepage";
 
 export default async function Header() {
@@ -17,24 +19,15 @@ export default async function Header() {
           line2={header.logoLine2}
         />
 
-        <nav className="hidden items-center gap-7 md:flex">
-          {header.navLinks.map((link) => (
-            <Link
-              key={link.href + link.label}
-              href={link.href}
-              className="text-sm font-semibold text-charcoal-700 transition hover:text-olive-700"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <HeaderNav links={header.navLinks} />
 
         <div className="flex items-center gap-3">
           <a
             href={header.ctaHref}
-            className="hidden rounded-xl bg-olive-700 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-cream-100 shadow-sm transition hover:bg-olive-800 hover:scale-[1.02] sm:inline-flex"
+            className="hidden items-center gap-2 rounded-xl bg-olive-700 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-cream-100 shadow-sm transition hover:bg-olive-800 hover:scale-[1.02] sm:inline-flex"
           >
-            {header.ctaText}
+            <TicketIcon className="h-4 w-4" />
+            {header.bookNowText || header.ctaText}
           </a>
           <MobileNav links={header.navLinks} ctaText={header.ctaText} ctaHref={header.ctaHref} />
         </div>
@@ -42,3 +35,4 @@ export default async function Header() {
     </header>
   );
 }
+

@@ -27,6 +27,7 @@ export interface Post {
   updatedAt: string;
   image: string;
   imageAlt: string;
+  author: string;
   recommendedTourId: string;
   recommendedTourAfterBlock?: number;
   content: string;
@@ -47,6 +48,7 @@ const DEFAULT_CTA_HEADING = "Ready to explore the Colosseum in Rome?";
 const DEFAULT_CTA_BODY = "Compare Colosseum skip-the-line tickets and Arena Floor tour options on our homepage.";
 const DEFAULT_CTA_BUTTON_TEXT = "Compare Colosseum Tickets & Passes";
 const DEFAULT_CTA_BUTTON_HREF = "/#prices";
+const DEFAULT_AUTHOR = "Colosseum Arena Tickets Team / Rome Travel Experts";
 
 function escapeHtml(text: string): string {
   return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -112,6 +114,7 @@ function rowToPost(row: any): Post {
     updatedAt: row.updated_at ? toDateString(row.updated_at, dateStr) : dateStr,
     image: row.image || row.cover_image || "",
     imageAlt: row.image_alt || row.cover_image_alt || "",
+    author: row.author || DEFAULT_AUTHOR,
     recommendedTourId: row.recommended_tour_id || "colosseum-arena-floor-skip-the-line-ticket",
     recommendedTourAfterBlock:
       row.recommended_tour_after_block === null ? undefined : Number(row.recommended_tour_after_block),
@@ -144,6 +147,7 @@ function seedPosts(): Post[] {
     updatedAt: p.updatedAt ? p.updatedAt.slice(0, 10) : (p.publishedAt ? p.publishedAt.slice(0, 10) : "2026-03-20"),
     image: p.coverImage || p.image || "",
     imageAlt: p.coverImageAlt || p.imageAlt || "",
+    author: p.author || DEFAULT_AUTHOR,
     recommendedTourId: p.recommendedTourId || "colosseum-arena-floor-skip-the-line-ticket",
     recommendedTourAfterBlock: p.recommendedTourAfterBlock,
     content: parseContent(p.content),

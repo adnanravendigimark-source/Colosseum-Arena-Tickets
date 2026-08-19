@@ -18,11 +18,10 @@ export default function TourCard({
 }) {
   return (
     <div
-      className={`group flex h-full flex-col overflow-hidden rounded-2xl bg-cream-50 transition-all duration-300 hover:-translate-y-1 ${
-        recommended
+      className={`group flex h-full flex-col overflow-hidden rounded-2xl bg-cream-50 transition-all duration-300 hover:-translate-y-1 ${recommended
           ? "border-2 border-olive-700 shadow-xl shadow-olive-900/10 hover:shadow-2xl ring-1 ring-sage-400"
           : "border border-warmstone-200/90 shadow-sm hover:border-olive-600/50 hover:shadow-xl"
-      }`}
+        }`}
     >
       {/* Image */}
       <div className="relative aspect-[16/10] overflow-hidden bg-warmstone-100">

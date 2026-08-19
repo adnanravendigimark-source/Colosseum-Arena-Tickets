@@ -2,7 +2,7 @@ import type { TocItem } from "@/lib/tableOfContents";
 
 export default function TableOfContents({
   items,
-  label = "In This Guide",
+  label = "IN THIS GUIDE",
 }: {
   items: TocItem[];
   label?: string;
@@ -11,23 +11,29 @@ export default function TableOfContents({
   if (sections.length < 2) return null;
 
   return (
-    <div className="mt-8 rounded-2xl border border-warmstone-300 bg-warmstone-100/50 p-6">
-      <p className="text-xs font-bold uppercase tracking-widest text-olive-800">{label}</p>
-      <ul className="mt-3.5 space-y-2.5 text-sm">
-        {sections.map((item) => (
-          <li key={item.id}>
-            <a
-              href={`#${item.id}`}
-              className="flex items-center gap-2 font-medium text-charcoal-700 transition hover:text-olive-700 hover:translate-x-0.5"
-            >
-              <span aria-hidden="true" className="text-olive-700 font-bold">
-                ›
-              </span>
-              {item.text}
-            </a>
-          </li>
-        ))}
-      </ul>
+    <div className="rounded-2xl border border-warmstone-200 bg-cream-50 p-5 shadow-sm">
+      <p className="font-display text-xs font-bold uppercase tracking-wider text-charcoal-900">
+        {label}
+      </p>
+      <ol className="mt-3.5 space-y-2 border-l-2 border-warmstone-200 pl-3.5 text-xs">
+        {sections.map((item, i) => {
+          // If the heading already has numbers like "1. Best Time", clean it or display cleanly
+          const cleanText = item.text.replace(/^\d+\.\s*/, "");
+          return (
+            <li key={item.id}>
+              <a
+                href={`#${item.id}`}
+                className="flex items-baseline gap-1.5 font-medium text-charcoal-700 transition hover:text-olive-700"
+              >
+                <span aria-hidden="true" className="shrink-0 font-bold text-charcoal-900">
+                  {i + 1}.
+                </span>
+                <span className="leading-snug">{cleanText}</span>
+              </a>
+            </li>
+          );
+        })}
+      </ol>
     </div>
   );
 }

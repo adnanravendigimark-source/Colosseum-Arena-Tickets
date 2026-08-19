@@ -8,10 +8,10 @@ export default async function TourGrid() {
 
   const orderedTours = content.showFeaturedTour
     ? [...tours].sort((a, b) => {
-        if (a.id === content.featuredTourId) return -1;
-        if (b.id === content.featuredTourId) return 1;
-        return 0;
-      })
+      if (a.id === content.featuredTourId) return -1;
+      if (b.id === content.featuredTourId) return 1;
+      return 0;
+    })
     : tours;
 
   return (
@@ -34,10 +34,10 @@ export default async function TourGrid() {
             recommended={
               content.showFeaturedTour && tour.id === content.featuredTourId
                 ? {
-                    badgeLabel: content.featuredBadgeLabel,
-                    reasons: content.featuredReasons,
-                    urgencyText: content.featuredUrgencyText,
-                  }
+                  badgeLabel: content.featuredBadgeLabel,
+                  reasons: content.featuredReasons,
+                  urgencyText: content.featuredUrgencyText,
+                }
                 : undefined
             }
           />

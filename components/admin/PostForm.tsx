@@ -96,7 +96,14 @@ export default function PostForm({
 }) {
   const router = useRouter();
   const { showToast } = useToast();
-  const [post, setPost] = useState<Post>(initial);
+  const [post, setPost] = useState<Post>(() => {
+    // If it's a new post, ensure date is initialized to the current local date YYYY-MM-DD
+    if (isNew) {
+      const today = new Date().toLocaleDateString("en-CA");
+      return { ...initial, date: today, updatedAt: today };
+    }
+    return initial;
+  });
   const [activeTab, setActiveTab] = useState<TabKey>("content");
   const [slugTouched, setSlugTouched] = useState(!isNew);
   const [saving, setSaving] = useState(false);
@@ -263,26 +270,44 @@ export default function PostForm({
                     placeholder="colosseum-arena-floor-tickets-guide"
                   />
                 </Field>
-                <Field label="Category">
+                <Field label="Category" hint="Controls the category badge and sidebar category filters.">
                   <input
                     required
                     value={post.category}
                     onChange={(e) => update("category", e.target.value)}
                     className={inputClass}
-                    placeholder="e.g. Trip Planning"
+                    placeholder="e.g. Visitor Guide, Tours, Tickets & Prices"
                   />
                 </Field>
               </div>
 
-              <div className="grid gap-5 sm:grid-cols-2">
-                <Field label="Publish date">
+              <div className="grid gap-5 sm:grid-cols-3">
+                <Field label="Author" hint="e.g. Emma Rossi / Rome Specialist">
                   <input
-                    type="date"
-                    required
-                    value={post.date}
-                    onChange={(e) => update("date", e.target.value)}
+                    value={post.author || ""}
+                    onChange={(e) => update("author", e.target.value)}
                     className={inputClass}
+                    placeholder="Emma Rossi"
                   />
+                </Field>
+                <Field label="Publish date" hint="Auto-detected from today's date on creation.">
+                  <div className="flex gap-2">
+                    <input
+                      type="date"
+                      required
+                      value={post.date}
+                      onChange={(e) => update("date", e.target.value)}
+                      className={inputClass}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => update("date", new Date().toLocaleDateString("en-CA"))}
+                      className="shrink-0 rounded-lg border border-stone-300 bg-stone-50 px-2.5 py-1.5 text-xs font-semibold text-stone-700 hover:bg-stone-100 transition"
+                      title="Set to current date"
+                    >
+                      Today
+                    </button>
+                  </div>
                 </Field>
                 <Field label="Read time">
                   <input
@@ -290,7 +315,7 @@ export default function PostForm({
                     value={post.readTime}
                     onChange={(e) => update("readTime", e.target.value)}
                     className={inputClass}
-                    placeholder="e.g. 4 min read"
+                    placeholder="e.g. 8 min read"
                   />
                 </Field>
               </div>

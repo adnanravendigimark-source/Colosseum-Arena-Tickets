@@ -21,6 +21,7 @@ export default async function NewPostPage() {
     updatedAt: today,
     image: "",
     imageAlt: "",
+    author: "",
     recommendedTourId: tours[0]?.id || "",
     recommendedTourAfterBlock: 0,
     content: "",

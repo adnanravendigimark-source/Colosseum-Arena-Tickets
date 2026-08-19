@@ -146,6 +146,162 @@ body {
   color: #D8D0BE;
 }
 
+/* Editorial Blog Rich Content Enhancements */
+.rich-content .lead-paragraph {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: #343430;
+  margin-bottom: 1.5em;
+}
+
+/* Pro Tip Callout Box */
+.pro-tip-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  background-color: #ECE6D8;
+  border: 1px solid #D8D0BE;
+  border-radius: 0.875rem;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  font-size: 0.9375rem;
+  color: #252522;
+  line-height: 1.6;
+}
+.pro-tip-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background-color: #34412D;
+  color: #F4F0E6;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+/* Ticket Comparison Table */
+.ticket-comparison-wrapper {
+  margin: 1.75rem 0 2rem;
+  background-color: #FFFFFF;
+  border: 1px solid #D8D0BE;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(37, 37, 34, 0.04);
+}
+.ticket-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.875rem;
+}
+.ticket-comparison-table thead {
+  background-color: #EBE5D8;
+  border-bottom: 1px solid #D8D0BE;
+}
+.ticket-comparison-table th {
+  padding: 0.875rem 1.125rem;
+  font-family: var(--font-body), sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #252522;
+  border: none;
+}
+.ticket-comparison-table tbody tr {
+  border-bottom: 1px solid #EBE5D8;
+  transition: background-color 0.15s ease;
+}
+.ticket-comparison-table tbody tr:last-child {
+  border-bottom: none;
+}
+.ticket-comparison-table tbody tr:hover {
+  background-color: #FAF8F3;
+}
+.ticket-comparison-table td {
+  padding: 0.875rem 1.125rem;
+  color: #343430;
+  line-height: 1.5;
+  border: none;
+  vertical-align: middle;
+}
+.ticket-type-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-weight: 700;
+  color: #252522;
+}
+.ticket-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.375rem;
+  background-color: #EBE5D8;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.ticket-table-action {
+  padding: 0.875rem 1.125rem 1.125rem;
+  background-color: #FAF8F3;
+  border-top: 1px solid #EBE5D8;
+}
+.compare-tickets-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #34412D;
+  color: #F4F0E6 !important;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.625rem;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.compare-tickets-btn:hover {
+  background-color: #273221;
+  transform: translateY(-1px);
+}
+
+/* Custom Checklist */
+.custom-checklist {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 1.25rem 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.custom-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #252522;
+}
+.check-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  background-color: #34412D;
+  color: #F4F0E6;
+  font-size: 0.75rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
 /* Tiptap's Placeholder extension */
 .tiptap p.is-editor-empty:first-child::before {
   content: attr(data-placeholder);
