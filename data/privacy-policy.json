@@ -1,31 +1,75 @@
 {
-  "title": "Privacy Policy & Terms",
-  "lastUpdated": "March 2026",
-  "intro": "Colosseum Arena Tickets (\"we,\" \"our,\" or \"us\") operates colosseumarenaentry.com as an independent travel information, historical guide, and ticket comparison portal for travelers visiting Rome, Italy.",
+  "title": "Privacy Policy",
+  "lastUpdated": "August 2026",
+  "intro": "Welcome to Colosseum Arena Tickets (\"we,\" \"our,\" or \"us\"). We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website. By using our website, you agree to the practices described in this Privacy Policy.",
   "sections": [
     {
-      "heading": "1. Who We Are & Affiliate Disclosure",
-      "content": "Colosseum Arena Tickets is an independent travel platform and affiliate publisher. We are not the official Parco Archeologico del Colosseo monument authority or direct merchant. We partner with authorized Italian and international ticketing providers (including GetYourGuide) to provide ticket comparisons, availability schedules, visitor guides, and fast-track booking options. When you click a tour link and purchase tickets through our authorized partners, we may earn an affiliate commission at no additional cost to you."
+      "heading": "1. Who We Are",
+      "content": "Colosseum Arena Tickets is an independent travel information website that provides guides, visitor information, travel tips, and recommendations related to the Colosseum and Roman Forum in Rome, Italy. We do not sell tickets directly. We participate in affiliate marketing programs. When you click certain links and make a purchase through our affiliate partners, we may earn a commission at no additional cost to you."
     },
     {
       "heading": "2. Information We Collect",
-      "content": "We do not store your credit card or financial billing information on our servers. All booking transactions, payment processing, and electronic ticket issuances are fulfilled directly by authorized partner platforms under strict PCI-DSS and SSL compliance. If you send us a message via our Contact form, we collect your name and email address exclusively to respond to your customer inquiry."
+      "content": "Information you voluntarily provide includes your name, email address, information submitted through contact forms, and any information you voluntarily send us. We also automatically collect certain information when you visit our site, including your IP address, browser type, device information, operating system, pages visited, time spent on pages, referring website, and the date and time of your visit."
     },
     {
-      "heading": "3. Cookies & Analytics",
-      "content": "We use standard first-party cookies and anonymized web analytics to analyze site traffic, optimize page loading speed, and enhance your user experience. These cookies do not contain sensitive personal data. You can manage or disable cookie preferences at any time in your browser settings."
+      "heading": "3. Cookies",
+      "content": "Our website uses cookies and similar technologies to remember preferences, improve website performance, analyze website traffic, measure marketing effectiveness, and support affiliate tracking."
     },
     {
-      "heading": "4. Third-Party Links & Booking Terms",
-      "content": "Our platform links to external ticketing and tour operating websites. Once you leave our domain, your transactions and reservations are subject to the privacy terms and cancellation policies of the respective booking merchant. We recommend reviewing their terms prior to booking."
+      "heading": "4. Affiliate Links",
+      "content": "Some links on our website are affiliate links. If you purchase through these links, we may earn a commission at no additional cost to you. Affiliate partners may include GetYourGuide, Viator, Headout, Tiqets, and other travel booking platforms."
     },
     {
-      "heading": "5. GDPR & Data Subject Rights",
-      "content": "Under the European Union General Data Protection Regulation (GDPR) and UK GDPR, you have the right to request access to, correction of, or permanent deletion of any personal correspondence you have submitted to us. To submit a data request, please reach out through our Contact page."
+      "heading": "5. Analytics",
+      "content": "We may use analytics services such as Google Analytics or similar tools to understand how visitors use our website."
     },
     {
-      "heading": "6. Contact Information",
-      "content": "For privacy inquiries, questions about our editorial guides, or assistance with our website, please email us at support@colosseumarenaentry.com."
+      "heading": "6. Advertising",
+      "content": "We may display advertisements from third-party advertising partners."
+    },
+    {
+      "heading": "7. Third-Party Websites",
+      "content": "Our website contains links to third-party websites. We encourage you to review their privacy policies before providing any personal information or completing a booking."
+    },
+    {
+      "heading": "8. How We Use Your Information",
+      "content": "We use information to operate our website, respond to inquiries, improve user experience, analyze website performance, detect fraud and security issues, comply with legal obligations, and support affiliate tracking and reporting."
+    },
+    {
+      "heading": "9. Sharing Your Information",
+      "content": "We do not sell your personal information. Information may be shared with analytics providers, affiliate partners, hosting providers, technical service providers, or legal authorities when required by law."
+    },
+    {
+      "heading": "10. Data Security",
+      "content": "We implement reasonable measures to protect your information, although no method of transmission over the internet is completely secure."
+    },
+    {
+      "heading": "11. Data Retention",
+      "content": "We retain personal information only as long as necessary for legal and operational purposes."
+    },
+    {
+      "heading": "12. Your Rights",
+      "content": "Depending on your location, you may have rights to access, correct, delete, restrict processing, object to processing, request data portability, and withdraw consent regarding your personal information."
+    },
+    {
+      "heading": "13. Children's Privacy",
+      "content": "Our website is not directed toward children under 13 years of age."
+    },
+    {
+      "heading": "14. International Visitors",
+      "content": "Your information may be processed in countries with different data protection laws than your own."
+    },
+    {
+      "heading": "15. Changes to This Privacy Policy",
+      "content": "We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date."
+    },
+    {
+      "heading": "16. Contact Us",
+      "content": "Questions about this Privacy Policy? Email us at livetravelpartner@gmail.com."
+    },
+    {
+      "heading": "Affiliate Disclosure",
+      "content": "Colosseum Arena Tickets is an independent travel guide and is not affiliated with, endorsed by, sponsored by, or operated by the Parco Archeologico del Colosseo, its management, or any official tourism authority. Some links are affiliate links, meaning we may earn a commission if you make a purchase through them at no additional cost to you."
     }
   ]
 }
