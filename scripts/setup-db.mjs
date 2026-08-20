@@ -557,11 +557,7 @@ async function seedAboutPage() {
 }
 
 async function seedContactPage() {
-  const [{ count }] = await sql`SELECT COUNT(*)::int AS count FROM contact_page`;
-  if (count > 0) {
-    console.log("contact_page: already configured — skipping seed.");
-    return;
-  }
+  const rows = await sql`SELECT email FROM contact_page WHERE id = 1`;
   const reasons = [
     { icon: "HeadsetIcon", title: "Ticket Selection & Advice", body: "Need help deciding between Arena Floor access, priority fast-track entry, or a full historian guided tour? Ask our Rome specialists." },
     { icon: "BriefcaseIcon", title: "Partnerships & Operators", body: "Licensed Italian tour operators, tourism authorities, and travel publishers — reach out regarding listings and collaborations." },
@@ -572,7 +568,8 @@ async function seedContactPage() {
     heroHeading: "Get in Touch with Our Rome Travel Team",
     heroSubheading:
       "Questions about booking Colosseum tickets, Arena Floor passes, Underground tours, or partnership inquiries? Reach out to our team directly.",
-    email: "support@colosseumarenaentry.com",
+    // Standardized contact address, shared across every site in this family.
+    email: "livetravelpartner@gmail.com",
     emailNote: "We typically respond within 1–2 business days.",
     reasonsHeading: "How We Can Help",
     footerNote:
@@ -583,6 +580,18 @@ async function seedContactPage() {
     metaDescription:
       "Questions about Colosseum tickets, Arena Floor passes, or visiting Rome? Contact the Colosseum Arena Entry team.",
   };
+
+  const existing = rows[0];
+  if (existing && existing.email !== c.email) {
+    await sql`UPDATE contact_page SET email = ${c.email} WHERE id = 1`;
+    console.log("contact_page: updated contact email to livetravelpartner@gmail.com.");
+    return;
+  }
+  if (existing) {
+    console.log("contact_page: already configured — skipping seed.");
+    return;
+  }
+
   await sql`
     INSERT INTO contact_page (
       id, hero_eyebrow, hero_heading, hero_subheading, email, email_note,

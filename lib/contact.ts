@@ -33,7 +33,7 @@ const DEFAULT_CONTACT: ContactPageContent = {
   heroHeading: "Get in Touch with Our Rome Travel Team",
   heroSubheading:
     "Questions about booking Colosseum tickets, Arena Floor passes, Underground tours, or partnership inquiries? Reach out to our team directly.",
-  email: "support@colosseumarenaentry.com",
+  email: "livetravelpartner@gmail.com",
   emailLabel: "Email Us Directly",
   emailNote: "We typically respond within 1–2 business days.",
   reasonsHeading: "How We Can Help",
