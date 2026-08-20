@@ -24,11 +24,20 @@ const bodyFont = Plus_Jakarta_Sans({
 const DEFAULT_OG_IMAGE =
   "https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=2400&auto=format&fit=crop";
 
+// Google's Rich Results validator only recognizes aggregateRating on a
+// specific list of types (LocalBusiness, Organization, Product, etc.) —
+// "TouristAttraction" alone isn't on that list, which is what Search
+// Console's "Invalid object type for field" error was flagging. Adding
+// "LocalBusiness" as a second @type (valid JSON-LD multi-typing, and an
+// accurate description of the business) keeps aggregateRating valid
+// without changing what the entity actually is. image is included since
+// it's a recommended field for LocalBusiness review-snippet eligibility.
 const touristAttractionJsonLd = {
   "@context": "https://schema.org",
-  "@type": "TouristAttraction",
+  "@type": ["TouristAttraction", "LocalBusiness"],
   name: "Colosseum Arena Tickets",
   url: SITE_URL,
+  image: DEFAULT_OG_IMAGE,
   description:
     "Official & verified Colosseum Arena tickets with exclusive direct Arena Floor access, fast-track admission, and Roman Forum & Palatine Hill entry in Rome, Italy.",
   address: {
