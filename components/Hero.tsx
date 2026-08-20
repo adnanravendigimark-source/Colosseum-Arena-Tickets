@@ -33,12 +33,15 @@ export default async function Hero() {
             className="object-cover object-center scale-105"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-900/75 to-charcoal-900/25" />
-        <div className="absolute inset-0 bg-mosaic mix-blend-soft-light opacity-60" aria-hidden="true" />
+        {/* Uses the brand olive tone (olive-950, a real shade in tailwind.config.ts)
+            instead of a neutral black scrim, so the darkening reads as part of
+            the site's palette rather than a generic overlay. */}
+        <div className="absolute inset-0 bg-gradient-to-t from-olive-950/95 via-olive-900/65 to-olive-900/30" />
+        <div className="absolute inset-0 bg-mosaic mix-blend-soft-light opacity-40" aria-hidden="true" />
       </div>
 
       <div className="relative mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
-        <div className="inline-flex items-center gap-2.5 rounded-full border border-sage-400/30 bg-charcoal-950/50 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-sage-100 backdrop-blur-md sm:text-xs">
+        <div className="inline-flex items-center gap-2.5 rounded-full border border-sage-400/30 bg-charcoal-900/50 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-sage-100 backdrop-blur-md sm:text-xs">
           <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-sage-400" />
           {content.heroBadge}
         </div>
@@ -67,7 +70,7 @@ export default async function Hero() {
           </a>
 
           {content.ratingValue && (
-            <div className="ml-auto flex items-center gap-3.5 rounded-2xl border border-cream-100/15 bg-charcoal-950/45 px-5 py-3 backdrop-blur-md">
+            <div className="ml-auto flex items-center gap-3.5 rounded-2xl border border-cream-100/15 bg-charcoal-900/45 px-5 py-3 backdrop-blur-md">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-olive-700/60 text-lg text-sage-200">
                 ★
               </div>
@@ -93,7 +96,7 @@ export default async function Hero() {
                   sizes="(min-width: 640px) 25vw, 50vw"
                   className="object-cover transition duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/95 via-charcoal-900/25 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/95 via-charcoal-900/25 to-transparent" />
                 <span className="absolute bottom-2.5 left-3 right-3 truncate text-xs font-bold text-cream-50">
                   {img.label}
                 </span>
