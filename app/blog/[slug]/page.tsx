@@ -176,7 +176,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
               <BlogPostBody
                 content={contentHtml}
                 recommendedTourId={post.recommendedTourId}
-                showRecommendedTour={false}
+                showRecommendedTour={!!post.recommendedTourAfterBlock}
               />
 
               {/* Bottom Article CTA Card */}
