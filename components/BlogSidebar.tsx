@@ -18,11 +18,17 @@ export default function BlogSidebar({
   popularPosts,
   toc,
   tocLabel = "IN THIS GUIDE",
+  relatedHeading = "POPULAR ARTICLES",
+  compareLinkText = "Compare Now →",
+  recommendedBadge,
 }: {
   slug: string;
   popularPosts: Post[];
   toc: TocItem[];
   tocLabel?: string;
+  relatedHeading?: string;
+  compareLinkText?: string;
+  recommendedBadge?: string;
 }) {
   const [email, setEmail] = useState("");
   const [agreed, setAgreed] = useState(false);
@@ -72,7 +78,7 @@ export default function BlogSidebar({
       {popular.length > 0 && (
         <div className="rounded-2xl border border-warmstone-200 bg-cream-50 p-5 shadow-sm">
           <p className="font-display text-xs font-bold uppercase tracking-wider text-charcoal-900">
-            POPULAR ARTICLES
+            {relatedHeading}
           </p>
           <div className="mt-4 space-y-3.5">
             {popular.map((post) => (
@@ -107,6 +113,11 @@ export default function BlogSidebar({
 
       {/* Compare Colosseum Tickets & Tours Promo Card */}
       <div className="relative overflow-hidden rounded-2xl border border-warmstone-300 bg-[#ECE6D8] p-6 text-center shadow-sm">
+        {recommendedBadge && (
+          <span className="absolute left-1/2 top-3 -translate-x-1/2 rounded-full bg-warmstone-200/80 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-olive-800 border border-warmstone-300">
+            {recommendedBadge}
+          </span>
+        )}
         <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-warmstone-200/80 text-olive-700">
           <TicketIcon className="h-5 w-5" />
         </div>
@@ -120,7 +131,7 @@ export default function BlogSidebar({
           href="/#tours"
           className="mt-4 inline-flex items-center gap-1.5 rounded-xl bg-olive-700 px-5 py-2.5 text-xs font-bold text-cream-50 shadow-sm transition hover:bg-olive-800 hover:scale-[1.02]"
         >
-          Compare Now →
+          {compareLinkText}
         </a>
       </div>
 

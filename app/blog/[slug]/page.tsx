@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BlogPostBody from "@/components/BlogPostBody";
 import BlogSidebar from "@/components/BlogSidebar";
+import QuickAnswer from "@/components/QuickAnswer";
+import RelatedPosts from "@/components/RelatedPosts";
 import SafeImage from "@/components/SafeImage";
 import { CalendarIcon, ClockPayIcon, TicketIcon } from "@/components/icons";
 import { getPost, getPosts } from "@/lib/posts";
@@ -92,7 +94,9 @@ export default async function Post({ params }: { params: { slug: string } }) {
   });
 
   const { toc: headingToc, html: contentHtml } = extractTableOfContents(post.content);
-  const toc = headingToc;
+  const toc = post.quickAnswer.trim()
+    ? [{ id: "quick-answer", text: s.quickAnswerLabel, level: 2 as const }, ...headingToc]
+    : headingToc;
   const author = getAuthorParts(post.author);
   const popularPosts = allPosts.filter((p) => p.slug !== post.slug);
 
@@ -101,6 +105,13 @@ export default async function Post({ params }: { params: { slug: string } }) {
       <Header />
       <main className="min-h-screen bg-white">
         <div className="mx-auto max-w-6xl px-4 pt-6 sm:px-6">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-charcoal-600 transition hover:text-olive-700"
+          >
+            {s.backToGuidesText}
+          </Link>
+
           {/* Breadcrumbs */}
           <nav aria-label="Breadcrumb" className="text-xs font-medium text-charcoal-600">
             <ol className="flex flex-wrap items-center gap-1.5">
@@ -173,10 +184,15 @@ export default async function Post({ params }: { params: { slug: string } }) {
           <div className="mt-10 pb-20 lg:grid lg:grid-cols-[1fr_280px] lg:gap-10">
             {/* Left Column: Article Body */}
             <div>
+              {post.quickAnswer.trim() && (
+                <QuickAnswer label={s.quickAnswerLabel}>{post.quickAnswer}</QuickAnswer>
+              )}
+
               <BlogPostBody
                 content={contentHtml}
                 recommendedTourId={post.recommendedTourId}
                 showRecommendedTour={!!post.recommendedTourAfterBlock}
+                recommendedLabel={s.promoRecommendedText}
               />
 
               {/* Bottom Article CTA Card */}
@@ -187,20 +203,24 @@ export default async function Post({ params }: { params: { slug: string } }) {
                   </div>
                   <div>
                     <p className="font-display text-base font-bold text-charcoal-900">
-                      Ready to Explore the Colosseum?
+                      {post.ctaHeading}
                     </p>
                     <p className="mt-0.5 text-xs text-charcoal-600">
-                      Compare the best tickets and tours to get the most out of your visit.
+                      {post.ctaBody}
                     </p>
                   </div>
                 </div>
 
                 <a
-                  href="/#tours"
+                  href={post.ctaButtonHref || "/#tours"}
                   className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-olive-700 px-5 py-2.5 text-xs font-bold text-cream-50 shadow-sm transition hover:bg-olive-800 hover:scale-[1.02]"
                 >
-                  Compare Tickets →
+                  {post.ctaButtonText}
                 </a>
+              </div>
+
+              <div className="mt-14">
+                <RelatedPosts slug={post.slug} />
               </div>
             </div>
 
@@ -210,7 +230,10 @@ export default async function Post({ params }: { params: { slug: string } }) {
                 slug={post.slug}
                 popularPosts={popularPosts}
                 toc={toc}
-                tocLabel="IN THIS GUIDE"
+                tocLabel={s.tocLabel}
+                relatedHeading={s.sidebarRelatedHeading}
+                compareLinkText={s.sidebarCompareLinkText}
+                recommendedBadge={s.sidebarRecommendedBadge}
               />
             </div>
           </div>
