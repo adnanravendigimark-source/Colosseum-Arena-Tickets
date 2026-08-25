@@ -56,8 +56,7 @@ export default function TourCard({
           dangerouslySetInnerHTML={{ __html: tour.description }}
         />
 
-        {/* First 3 admin "Includes" items, one compact line each (duration
-            still shown in the Price Comparison table below). */}
+        {/* First 3 admin "Includes" items, one compact line each. */}
         <div className="mt-3 space-y-1">
           {tour.includes.slice(0, 3).map((item) => (
             <div key={item} className="flex items-center gap-1.5 text-[11.5px] text-charcoal-700">
@@ -66,6 +65,8 @@ export default function TourCard({
             </div>
           ))}
         </div>
+
+        {tour.duration && <p className="mt-2 text-xs font-medium text-sage-600">⏱ {tour.duration}</p>}
 
         {/* Footer */}
         {recommended ? (
