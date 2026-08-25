@@ -56,30 +56,16 @@ export default function TourCard({
           dangerouslySetInnerHTML={{ __html: tour.description }}
         />
 
-        <div className="mt-3.5 flex flex-wrap gap-1.5">
-          {tour.includes.map((item) => (
-            <span
-              key={item}
-              className="inline-flex items-center gap-1 rounded-md bg-warmstone-100/70 px-2.5 py-1 text-[11px] font-semibold text-charcoal-700 border border-warmstone-200"
-            >
-              <span className="text-olive-700 font-bold">✓</span>
-              {item}
-            </span>
+        {/* First 3 admin "Includes" items, one compact line each (duration
+            still shown in the Price Comparison table below). */}
+        <div className="mt-3 space-y-1">
+          {tour.includes.slice(0, 3).map((item) => (
+            <div key={item} className="flex items-center gap-1.5 text-[11.5px] text-charcoal-700">
+              <span className="text-olive-700 font-bold shrink-0">✓</span>
+              <span className="leading-tight line-clamp-1">{item}</span>
+            </div>
           ))}
         </div>
-
-        <p className="mt-3 text-xs font-medium text-sage-600">⏱ {tour.duration}</p>
-
-        {recommended && recommended.reasons.length > 0 && (
-          <div className="mt-3.5 rounded-xl bg-warmstone-100/90 border border-warmstone-200 p-3">
-            {recommended.reasons.slice(0, 2).map((reason) => (
-              <p key={reason} className="flex items-start gap-1.5 text-[11px] leading-snug text-charcoal-700 font-semibold">
-                <span className="mt-0.5 text-olive-700">✓</span>
-                {reason}
-              </p>
-            ))}
-          </div>
-        )}
 
         {/* Footer */}
         {recommended ? (
