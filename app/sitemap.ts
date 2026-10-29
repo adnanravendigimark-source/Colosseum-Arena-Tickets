@@ -7,7 +7,9 @@ import { getBlogSeoSettings } from "@/lib/settings";
 import { getAboutPage } from "@/lib/about";
 import { getContactPage } from "@/lib/contact";
 
-export const dynamic = "force-dynamic";
+
+// Rebuilt daily at most, and immediately after any admin save.
+export const revalidate = 86400;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [homepage, policy, posts, blogSeo, about, contact] = await Promise.all([

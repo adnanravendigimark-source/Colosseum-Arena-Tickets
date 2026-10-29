@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import { getPrivacyPolicy } from "@/lib/legal";
 import { resolveRobots, resolveCanonical, resolveOg } from "@/lib/seo";
 
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const policy = await getPrivacyPolicy();
